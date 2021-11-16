@@ -2,11 +2,9 @@ import RLogin, { RLoginButton } from '@rsksmart/rlogin'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 import { useState } from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { NavBar } from './components/navbar/Navbar';
 
-import bgLanding from './assets/bg-landing.svg';
 import wallet from './assets/wallet.svg';
 import svFlag from './assets/sv-flag.svg'
 
@@ -39,19 +37,14 @@ function App() {
     })
 
   return (
-    <div className="App" style={{ backgroundImage: `url(${bgLanding})`, backgroundRepeat: "no-repeat", backgroundPosition: "bottom right" }}>
+    <div className="App">
       <NavBar>
-        <div>
+        <div className="wallet-container">
           <img src={wallet} />
           <RLoginButton onClick={connect}> {!account ? 'Conectar wallet': account}</RLoginButton>
           <img src={svFlag} />
         </div>
       </NavBar>
-
-      <p className="title">¡Bienvenido!</p>
-      <p className="description">
-        Aquí podrás adquirir tus documentos y hacer tus trámites sin filas y en tiempo récord.
-      </p>
     </div>
   );
 }
